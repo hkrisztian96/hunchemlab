@@ -1,0 +1,113 @@
+@media (min-width: 768px) {
+    .omb_row-sm-offset-3 div:first-child[class*="col-"] {
+        margin-left: 25%;
+    }
+}
+
+.omb_login .omb_authTitle {
+    text-align: center;
+	line-height: 300%;
+}
+	
+
+.omb_login .omb_loginForm .input-group.i {
+	width: 2em;
+}
+.omb_login .omb_loginForm  .help-block {
+    color: red;
+}
+
+
+@media only screen and (min-width: 768px) {
+    .container {
+        padding-top: 7%;
+    }
+}
+
+@media (max-width: 480px){
+    .container{
+        padding-top: 20%;
+    }
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 2%;
+}
+	
+@media (min-width: 768px) {
+    .omb_login .omb_forgotPwd {
+        text-align: right;
+		margin-top:10px;
+ 	}		
+}
+
+.navbar-center {
+    padding-left: 27%;
+}
+
+.navbar-center > li {
+    padding-left: 5%;
+    font-size: larger;
+}
+
+
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail {
+    padding: 0px;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+}
+
+#delete-form {
+    display: inline;
+}
+
+#delete-comment {
+    display: inline;
+}
+
+.navbar-default .navbar-nav>li>a{
+    color: white;
+    font-weight: bold;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+    color: #66ccff;
+}
+
+.navbar-default .navbar-nav>li>a:active {
+    color:  yellow;
+}
+
+.navbar-default {
+    background-color: #337ab7;
+    border-color: white;
+}
+
+#brandimg {
+    height: 50px;
+    width: 200px;
+}
+
+h1 {
+    color: #337ab7;
+}
+
+.navbar-default .navbar-nav>li>a.active{
+    color: #337ab7;
+    background: white;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: white;
+}
+
+.navbar-default .navbar-toggle .icon-bar:hover {
+    color: #66ccff;
+}

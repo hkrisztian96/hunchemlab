@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        
+        <title>HunchemLab</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"></link>
+        <link href="/stylesheets/landing.css" rel="stylesheet"></link>
+    </head>
+    
+    <body>
+        
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <% if (currentUser) { %>
+                    <a href="/todos"><img src="https://kephost.com/images/2017/11/14/HUNGARO-1.png" alt="HUNGARO-1.png" id="brandimg" /></a>
+                <% } else { %>
+                    <a href="/"><img src="https://kephost.com/images/2017/11/14/HUNGARO-1.png" alt="HUNGARO-1.png" id="brandimg" /></a>
+                <% } %>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-left" style="padding-left: 5%">
+                    <% if (currentUser) { %>
+                    <li><a href="/todos/new">New</a></li>
+                    <li><a href="/todos">Todos</a></li>
+                    <% } %>
+                    <% if (currentUser && currentUser.username === "admin"){ %>
+                        <li><a href="/register">Register</a></li>
+                    <% } %>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <% if (!currentUser){ %>
+                        <li><a href="/">Login</a></li>
+                    <% } else { %>
+                        <li><a>Signed in as <%= currentUser.username %></a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <% if (error && error.length > 0) { %>
+        <div class="alert alert-danger" role="alert">
+            <%= error %>
+        </div>
+        <% } else if (success && success.length > 0){ %>
+        <div class="alert alert-success" role="alert">
+            <%= success %>
+        </div>
+        <% } %>
+    </div>

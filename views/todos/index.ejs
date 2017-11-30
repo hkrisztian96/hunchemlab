@@ -1,0 +1,23 @@
+<% include ../partials/header %>
+
+<div class="container">
+    
+    <div class="row text-center">
+        <% todos.forEach(function(todo){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h4><%= todo.name %></h4>
+                        <p><strong>Határidő: <%= todo.expiration_date %></strong></p>
+                    </div>
+                    <p>
+                        <a href="/todos/<%= todo._id %>" class="btn btn-primary">More Info</a>
+                    </p>
+                </div>
+                
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+<% include ../partials/footer %>

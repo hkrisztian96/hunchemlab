@@ -1,0 +1,11 @@
+        <script src="//code.jquery.com/jquery.min.js"></script>
+        <script type="text/javascript">
+            var url = window.location.href;
+            var arr = url.split("/");
+            url = arr[arr.length-1];
+            $('a[href="/'+ url +'"]').addClass('active');
+            $('a[href="/todos/'+ url +'"]').addClass('active');
+        </script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      </body>
+</html>
