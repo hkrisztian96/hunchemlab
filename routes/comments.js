@@ -63,6 +63,7 @@ router.put("/:comment_id", middleware.checkCommentOwnership, function(req, res){
         if (err){
             res.redirect("back");
         } else {
+            req.flash("success", "Successfully edited comment");
             res.redirect("/todos/" + req.params.id);
         }
     });

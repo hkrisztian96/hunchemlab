@@ -7,10 +7,12 @@ var moment = require("moment");
 //INDEX TODO
 router.get("/", middleware.isLoggedIn, function(req, res){
     
+  // Get all todos from DB
     Todo.find({}, function(err, allTodos){
        if(err){
            console.log(err);
        } else {
+          // Delete expired todos from DB
           allTodos.forEach(function(todo){
                   if (moment(todo.expiration_date) < moment())
                   Todo.findByIdAndRemove(todo._id, function(err, removedTodo){
@@ -18,16 +20,8 @@ router.get("/", middleware.isLoggedIn, function(req, res){
                           console.log(err);
                       }
                   });
-          });
-       }
-    });    
-    
-  // Get all todos from DB
-    Todo.find({}, function(err, allTodos){
-       if(err){
-           console.log(err);
-       } else {
-          res.render("todos/index",{todos:allTodos});
+          }); 
+          res.render("todos/index",{todos:allTodos, moment: moment});
        }
     });
 });
@@ -96,6 +90,7 @@ router.put("/:id", middleware.checkTodoOwnership,function(req, res){
         if (err){
             res.redirect("/todos");
         } else {
+            req.flash("success", "Successfully edited todo");
             res.redirect("/todos/" + req.params.id);
         }
     });

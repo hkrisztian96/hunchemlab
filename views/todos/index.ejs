@@ -7,11 +7,20 @@
             <div class="col-md-3 col-sm-6">
                 <div class="thumbnail">
                     <div class="caption">
-                        <h4><%= todo.name %></h4>
-                        <p><strong>Határidő: <%= todo.expiration_date %></strong></p>
+                        <% if ( moment(todo.expiration_date).diff(moment(), "days") < 3 ) { %>
+                            <h4 style="color: #e60000"><strong><%= todo.name %></strong></h4>
+                            <p style="color: #e60000;"><strong>Határidő: <%= todo.expiration_date %></strong></p>
+                        <% } else { %>
+                            <h4><%= todo.name %></h4>
+                            <p><strong>Határidő: <%= todo.expiration_date %></strong></p>
+                        <% } %>
                     </div>
                     <p>
-                        <a href="/todos/<%= todo._id %>" class="btn btn-primary">More Info</a>
+                        <% if ( moment(todo.expiration_date).diff(moment(), "days") < 3 ) { %>
+                            <a href="/todos/<%= todo._id %>" class="btn btn-danger">More Info</a>
+                        <% } else { %>
+                            <a href="/todos/<%= todo._id %>" class="btn btn-primary">More Info</a>
+                        <% } %>
                     </p>
                 </div>
                 
