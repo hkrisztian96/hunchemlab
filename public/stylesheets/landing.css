@@ -24,11 +24,18 @@
     }
 }
 
-@media (max-width: 480px){
+@media (min-width: 450px) and (max-width: 768px) {
+    .container {
+        padding-top: 15%;
+    }
+}
+
+@media (max-width: 450px){
     .container{
         padding-top: 20%;
     }
 }
+
 
 h1 {
     text-align: center;

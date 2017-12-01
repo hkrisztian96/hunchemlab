@@ -50,7 +50,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
             req.flash("error", err.message);
             console.log(err);
         } else {
-            req.flash("success", "Successfully added your todo");
+            req.flash("success", "Successfully added todo");
             //redirect back to todos page
             res.redirect("/todos");
         }
