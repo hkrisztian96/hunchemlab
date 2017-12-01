@@ -6,7 +6,11 @@
                 <div class="caption-full">
                     <h4 style="text-align: center; font-size: 30px; color: #337ab7;"><p><%=todo.name%></p></h4>
                     <p><%= todo.description %></p>
-                    <p><strong>Határidő: <%= todo.expiration_date %></strong></p>
+                    <% if ( moment(todo.expiration_date).diff(moment(), "days") < 3 ) { %>
+                        <p style="color: #e60000;"><strong>Határidő: <%= todo.expiration_date %></strong></p>
+                    <% } else { %>
+                        <p><strong>Határidő: <%= todo.expiration_date %></strong></p>
+                    <% } %>
                     <p>
                         <em>Submitted by <%= todo.author.username %></em>
                     </p>

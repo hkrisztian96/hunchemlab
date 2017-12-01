@@ -72,7 +72,7 @@ router.get("/:id", middleware.isLoggedIn, function(req, res){
         } else {
             console.log(foundTodo);
             //render show template with that todo
-            res.render("todos/show", {todo: foundTodo});
+            res.render("todos/show", {todo: foundTodo, moment: moment});
         }
     });
 });
