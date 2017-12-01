@@ -6,7 +6,7 @@
         <div style="width: 30%; margin: 25px auto;">
             <form action="/todos/<%= todo._id %>/comments" method="POST">
                 <div class="form-group">
-                    <input type="text" class="form-control" name="comment[text]" placeholder="text"></input>
+                    <textarea name="comment[text]" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-lg btn-primary btn-block">Submit</button>

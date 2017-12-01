@@ -15,8 +15,8 @@ var commentRoutes   = require("./routes/comments"),
     todoRoutes      = require("./routes/todos"),
     indexRoutes     = require("./routes/index");
     
-//mongoose.connect("mongodb://localhost/hunchemlab");
-mongoose.connect(process.env.DATABASEURL);
+mongoose.connect("mongodb://localhost/hunchemlab");
+//mongoose.connect(process.env.DATABASEURL);
 
 
 app.use(bodyParser.urlencoded({extended: true}));
