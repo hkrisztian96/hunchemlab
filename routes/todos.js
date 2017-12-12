@@ -10,6 +10,7 @@ router.get("/", middleware.isLoggedIn, function(req, res){
   // Get all todos from DB
     Todo.find({}, function(err, allTodos){
        if(err){
+           req.flash("error", "Something went wrong :(");
            console.log(err);
        } else {
           // Delete expired todos from DB
@@ -17,6 +18,7 @@ router.get("/", middleware.isLoggedIn, function(req, res){
                   if (moment(todo.expiration_date) < moment())
                   Todo.findByIdAndRemove(todo._id, function(err, removedTodo){
                       if (err){
+                          req.flash("error", "Something went wrong :(");
                           console.log(err);
                       }
                   });
